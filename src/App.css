@@ -1,0 +1,67 @@
+/* App.css */
+
+body {
+  background-color: #0f1923;
+  font-family: sans-serif;
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 40px 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.prompt,
+.score {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 70px);
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.tile {
+  width: 70px;
+  height: 70px;
+  background-color: #2b3643;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.tile.hidden {
+  background-color: #2b3643;
+}
+
+.tile.revealed {
+  background-color: #3c4b5a;
+}
+
+.tile.correct {
+  background-color: #4caf50;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+}
+
+.tile.wrong {
+  background-color: #f44336;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+}
+
