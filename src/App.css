@@ -1,67 +1,245 @@
-/* App.css */
-
-body {
-  background-color: #0f1923;
-  font-family: sans-serif;
-  color: #ffffff;
-  text-align: center;
+/* body {
   margin: 0;
-  padding: 0;
+  font-family: sans-serif;
+  background-color: #0f172a;
+  color: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .container {
-  padding: 40px 20px;
-}
-
-h1 {
-  margin-bottom: 10px;
-}
-
-.prompt,
-.score {
-  margin: 10px 0;
-  font-size: 18px;
+  text-align: center;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 70px);
-  gap: 10px;
+  grid-template-columns: repeat(5, 60px);
+  grid-gap: 10px;
   justify-content: center;
   margin: 20px auto;
 }
 
 .tile {
-  width: 70px;
-  height: 70px;
-  background-color: #2b3643;
-  border-radius: 8px;
+  width: 60px;
+  height: 60px;
+  background-color: #334155;
+  border-radius: 6px;
+  font-size: 30px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 28px;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  align-items: center;
   cursor: pointer;
-  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 .tile.hidden {
-  background-color: #2b3643;
+  background-color: #1e293b;
 }
 
 .tile.revealed {
-  background-color: #3c4b5a;
+  background-color: #475569;
 }
 
 .tile.correct {
-  background-color: #4caf50;
-  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+  background-color: #22c55e;
+  color: white;
 }
 
 .tile.wrong {
-  background-color: #f44336;
-  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+  background-color: #ef4444;
+  color: white;
 }
+
+.timer {
+  font-size: 20px;
+  color: #facc15;
+  margin: 10px 0;
+}
+
+.score {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.reset-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+  background-color: #1d4ed8;
+}
+
+.game-over {
+  color: #f87171;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.you-win {
+  color: #4ade80;
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.animate-pop {
+  animation: pop 0.6s ease-in-out forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+} */
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111827;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Container styles */
+.container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Title */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Dropdown controls */
+.controls {
+  margin-bottom: 10px;
+}
+
+.dropdown {
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #1f2937;
+  color: white;
+}
+
+.dropdown:focus {
+  outline: 2px solid #3b82f6;
+}
+
+/* Prompt & timer */
+.prompt,
+.timer {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  gap: 10px;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+/* Tile styles */
+.tile {
+  width: 50px;
+  height: 50px;
+  background-color: #374151;
+  border-radius: 8px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.correct {
+  background-color: #10b981;
+  color: white;
+}
+
+.wrong {
+  background-color: #ef4444;
+  color: white;
+}
+
+.revealed {
+  background-color: #4b5563;
+  color: white;
+}
+
+.hidden {
+  background-color: #374151;
+}
+
+/* Score display */
+.score {
+  margin-top: 8px;
+  font-size: 1.1rem;
+}
+
+/* End screen */
+.end-screen {
+  margin-top: 10px;
+}
+
+.result-text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.reset-button {
+  padding: 8px 14px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #2563eb;
+}
+
+
+
 
